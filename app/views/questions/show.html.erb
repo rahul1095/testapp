@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @question.name %>
+</p>
+
+
+<%@question.answers.each do |answer|%>
+<%=answer.name%>
+
+  <%end%>

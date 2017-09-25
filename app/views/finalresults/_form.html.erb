@@ -1,0 +1,41 @@
+<%= form_for(finalresult) do |f| %>
+  <% if finalresult.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(finalresult.errors.count, "error") %> prohibited this finalresult from being saved:</h2>
+
+      <ul>
+      <% finalresult.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+<% @questions=Question.all %>
+
+ <% @questions.each do |question|%>
+ <%=question.name%>
+ <ul>
+<%= f.select :result, question.answers.collect {|p| [ p.name, p.id ] } %>
+</ul
+
+<%end%>
+
+
+   <%#= f.select(:result, Answers.collect {|p| [ p.name, p.id ] }
+                                            %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  var $check_boxes = $('input[type=checkbox]');
+$check_boxes.click(function() {
+  $check_boxes.prop('checked', false);
+  $(this).prop('checked', true);
+}
+</script>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Finalresults</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Result</th>
+      <th>User</th>
+      <th>Answer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finalresults.each do |finalresult| %>
+      <tr>
+        <td><%= finalresult.result %></td>
+        <td><%= finalresult.user_id %></td>
+        <td><%= finalresult.answer_id %></td>
+        <td><%= link_to 'Show', finalresult %></td>
+        <td><%= link_to 'Edit', edit_finalresult_path(finalresult) %></td>
+        <td><%= link_to 'Destroy', finalresult, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Finalresult', new_finalresult_path %>
